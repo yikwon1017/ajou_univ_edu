@@ -1,0 +1,35 @@
+{
+  "name": "Python image classification 실습 환경",
+  
+  // Python 3.11 기본 이미지 사용
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  
+  // 컨테이너 생성 후 자동으로 패키지 설치
+  "postCreateCommand": "pip install --upgrade pip && pip install numpy tqdm matplotlib seaborn opencv-python jupyter notebook ipykernel",
+  
+  // VS Code 설정
+  "customizations": {
+    "vscode": {
+      // 자동으로 설치될 확장 프로그램
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.jupyter-keymap",
+        "ms-toolsai.jupyter-renderers"
+      ],
+      // VS Code 설정
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.terminal.activateEnvironment": true,
+        "jupyter.widgetScriptSources": ["jsdelivr.com", "unpkg.com"]
+      }
+    }
+  },
+  
+  // 포트 포워딩 (Jupyter 등에서 사용)
+  "forwardPorts": [8888, 8000, 5000],
+  
+  // 사용자 설정
+  "remoteUser": "vscode"
+}
